@@ -1,7 +1,7 @@
 #!/bin/bash
-# Skript tervitab kasutajat ja väljastab tema kasutajanime.
+# Tervitab kasutajat suure algustähega nimega.
 
-echo -n "Tere, "
 kasutaja=$(whoami)
-echo -n "$kasutaja"
-echo "!"
+kasutaja=$(echo "$kasutaja" | sed 's/./\U&/')
+
+echo "Tere, ${kasutaja}!"
