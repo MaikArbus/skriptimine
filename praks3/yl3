@@ -1,0 +1,18 @@
+
+#!/bin/bash
+# Skript arvutab täis busside arvu ja bussikohtadest üle jäävate reisijate arvu.
+
+echo "Sisesta reisijate arv:"
+read reisijad
+
+echo "Sisesta kohtade arv ühes bussis:"
+read kohad
+
+# Arvutame täielikult täidetud busside arvu.
+bussid=$(expr "$reisijad" / "$kohad")
+
+# Arvutame reisijad, kellele täis bussides kohti ei jätku.
+maha=$(expr "$reisijad" % "$kohad")
+
+echo "Täielikult täidetud busse: $bussid"
+echo "Bussikohtadest üle jäävaid reisijaid: $maha"
