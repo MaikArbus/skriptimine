@@ -1,18 +1,19 @@
-
 #!/bin/bash
-# Skript arvutab täis busside arvu ja bussikohtadest üle jäävate reisijate arvu.
+# Skripti eesmärk: arvutada taiste busside arv ja ulejaanud reisijad.
 
 echo "Sisesta reisijate arv:"
 read reisijad
 
-echo "Sisesta kohtade arv ühes bussis:"
+echo "Sisesta kohtade arv uhes bussis:"
 read kohad
 
-# Arvutame täielikult täidetud busside arvu.
+if [ "$reisijad" -lt 0 ] || [ "$kohad" -le 0 ]; then
+    echo "Viga: reisijate arv ei tohi olla negatiivne ja kohtade arv peab olema positiivne."
+    exit 1
+fi
+
 bussid=$(expr "$reisijad" / "$kohad")
+ulejaanud=$(expr "$reisijad" % "$kohad")
 
-# Arvutame reisijad, kellele täis bussides kohti ei jätku.
-maha=$(expr "$reisijad" % "$kohad")
-
-echo "Täielikult täidetud busse: $bussid"
-echo "Bussikohtadest üle jäävaid reisijaid: $maha"
+echo "Taielikult tais busse: $bussid"
+echo "Mahajaanud reisijaid: $ulejaanud"
