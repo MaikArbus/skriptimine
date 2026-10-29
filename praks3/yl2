@@ -1,0 +1,37 @@
+
+#!/bin/bash
+# Skript arvutab, mitu küpsisepakki tuleb osta tordi valmistamiseks.
+
+echo "Sisesta aluskandiku pikkus (cm):"
+read alus_pikkus
+
+echo "Sisesta aluskandiku laius (cm):"
+read alus_laius
+
+echo "Sisesta küpsise pikkus (cm):"
+read kusis_pikkus
+
+echo "Sisesta küpsise laius (cm):"
+read kusis_laius
+
+echo "Mitu kihti torti tuleb?"
+read kihid
+
+echo "Mitu küpsist on ühes pakis?"
+read pakis
+
+# Arvutame küpsiste arvu ühes kihis.
+pikkuses=$(expr "$alus_pikkus" / "$kusis_pikkus")
+laiuses=$(expr "$alus_laius" / "$kusis_laius")
+kiht=$(expr "$pikkuses" \* "$laiuses")
+
+# Arvutame kõigi kihtide küpsiste koguarvu.
+kokku=$(expr "$kiht" \* "$kihid")
+
+# Arvutame vajalike pakkide arvu, ümardades ülespoole.
+pakid=$(expr "$kokku" + "$pakis" - 1)
+pakid=$(expr "$pakid" / "$pakis")
+
+echo "Ühes kihis on vaja $kiht küpsist."
+echo "Kokku on vaja $kokku küpsist."
+echo "Poest tuleb osta $pakid pakki."
