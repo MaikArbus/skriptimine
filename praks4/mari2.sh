@@ -1,4 +1,4 @@
-name="Mari"
+name="mari"
 
 if [ -n "$name" ]
 then
