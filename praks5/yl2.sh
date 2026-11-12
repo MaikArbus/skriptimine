@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+#kuu jargi aastaja väljastus
+#
+echo -e "sisesta kuu number"
+read kuu
+#
+if test $kuu -eq 12 -o $kuu -eq 1 -o $kuu -eq 2
+then
+	echo "Praegu on talv"
+elif test  $kuu -ge 3 -a $kuu -le 5
+then
+	echo "Praegu on kevad"
+elif test $kuu -ge 6 -a $kuu -le 8
+then
+	echo "Praegu on suvi"
+elif test $kuu -ge 9 -a $kuu -le 11
+then
+	echo "Praegu on sügis"
+fi
