@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for phrase in "Hello World" "Bash scripting" "For loop test"; do
+for phrase in "Tere maailm" "Bash skriptimine" "For-tsükli test"; do
     echo "Fraas: $phrase"
 done
 
