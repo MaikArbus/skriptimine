@@ -1,3 +1,3 @@
-for color in red green blue; do
-    echo "Värv: $color"
+for puuviljad in õun banaan kirss pirn; do
+    echo "puuvili: $puuviljad"
 done
